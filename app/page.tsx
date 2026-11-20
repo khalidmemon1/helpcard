@@ -327,7 +327,8 @@ export default function Maker() {
 
       <footer className="foot">
         HelpCard is free. It is not a medical service: in an emergency in India, call 112. Check the card&apos;s details
-        yourself, and make a new one when they change.
+        yourself, and make a new one when they change. We count visits with Google Analytics; a card&apos;s details are
+        never sent to it.
       </footer>
     </main>
     </>
