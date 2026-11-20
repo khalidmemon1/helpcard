@@ -13,6 +13,8 @@ Blood group, allergies, medicines and who to call, for anyone who finds you or y
 [![Runs on Cloud Run](https://img.shields.io/badge/runs%20on-Google%20Cloud%20Run-4285F4?style=flat-square&logo=googlecloud&logoColor=white)](#how-it-runs)
 [![Next.js](https://img.shields.io/badge/Next.js-static%20export-000000?style=flat-square&logo=nextdotjs)](https://nextjs.org)
 
+<a href="https://www.producthunt.com/products/helpcard?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-helpcard" target="_blank" rel="noopener noreferrer"><img alt="HelpCard - a free emergency QR card | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1323277&theme=light&t=1795180121825"></a>
+
 **[Make your card →](https://helpcard.nuvolin.com)**
 
 <br>

@@ -110,6 +110,8 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--t
 .aware-grid b { font-weight: 500; font-size: 19px; letter-spacing: -.01em; }
 .aware-grid p { margin: 6px 0 0; color: var(--muted); }
 .foot { margin-top: 48px; text-align: center; color: var(--muted); font-size: 13px; }
+.ph-badge { display: block; width: fit-content; margin: 0 auto 16px; }
+.ph-badge img { display: block; max-width: 100%; height: auto; }
 
 /* ---- wallet card (85.6 × 54 mm) ---- */
 .wallet { width: 85.6mm; height: 54mm; border-radius: 3.5mm; overflow: hidden; display: flex; flex-direction: column; background: var(--deco), var(--bg); color: var(--ink); box-shadow: 0 0 0 .3mm #0000001f; }
