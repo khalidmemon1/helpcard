@@ -326,6 +326,10 @@ export default function Maker() {
       </section>
 
       <footer className="foot">
+        <a className="ph-badge" href="https://www.producthunt.com/products/helpcard?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-helpcard" target="_blank" rel="noopener noreferrer">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img alt="HelpCard - a free emergency QR card | Product Hunt" width={250} height={54} src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1323277&theme=light&t=1795180121825" />
+        </a>
         HelpCard is free. It is not a medical service: in an emergency in India, call 112. Check the card&apos;s details
         yourself, and make a new one when they change. We count visits with Google Analytics; a card&apos;s details are
         never sent to it.
