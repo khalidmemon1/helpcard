@@ -50,9 +50,13 @@ export default function Maker() {
   const [copied, setCopied] = useState("");
   const [format, setFormat] = useState<Format>("badge");
   const [sheet, setSheet] = useState(false); // phone: preview sheet open
+  // Web NFC exists only in Chrome on Android, so the button only shows there
+  const [nfc, setNfc] = useState(false);
+  const [nfcMsg, setNfcMsg] = useState("");
 
   // an edit link (/#…) opens the card it was made from
   useEffect(() => {
+    setNfc("NDEFReader" in window);
     setOrigin(location.origin);
     const h = location.hash.slice(1);
     if (h) decodeCard(h).then((c) => c && setCard(c));
@@ -76,6 +80,21 @@ export default function Maker() {
     await navigator.clipboard.writeText(text);
     setCopied(what);
     setTimeout(() => setCopied(""), 1800);
+  };
+  // writes the same link the QR holds; not locked, so the sticker can be rewritten when the card changes
+  const writeNfc = async () => {
+    setNfcMsg("Hold an NFC sticker to the back of your phone…");
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      await new (window as any).NDEFReader().write({ records: [{ recordType: "url", data: url }] });
+      setNfcMsg("Written. Tap the sticker with any phone to open the card.");
+    } catch (e) {
+      setNfcMsg(
+        (e as Error).name === "NotAllowedError"
+          ? "NFC permission was blocked. Allow it in Chrome's site settings and try again."
+          : "Couldn't write it. Hold the sticker still, or use a bigger one (NTAG215 or NTAG216).",
+      );
+    }
   };
   const ready = card.name.trim() && card.contacts.some((c) => c.phone.trim());
   const shareText = `I made a free emergency QR card: blood group, allergies and who to call, in one scan. Nothing is stored online. Make one for your family: ${SITE}`;
@@ -252,7 +271,13 @@ export default function Maker() {
                 {copied === "edit" ? "Copied" : "Copy edit link"}
               </button>
             </div>
+            {nfc && (
+              <button type="button" className="secondary" disabled={!ready || !url} onClick={writeNfc}>
+                Write to NFC sticker
+              </button>
+            )}
           </div>
+          {nfcMsg && <p className="field-help center" role="status">{nfcMsg}</p>}
           {!ready && <p className="field-help center">Add a name and one phone number to print.</p>}
         </aside>
       </div>
