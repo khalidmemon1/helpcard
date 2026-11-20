@@ -1,0 +1,11 @@
+# What `gcloud run deploy --source .` uploads. Without this file gcloud skips everything in .gitignore,
+# including .env.local (the Google Analytics ID), so the site would build without analytics.
+.gcloudignore
+.git
+.gitignore
+node_modules/
+.next/
+out/
+.wrangler/
+task.md
+*.tsbuildinfo
